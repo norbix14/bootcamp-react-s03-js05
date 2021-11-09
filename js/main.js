@@ -29,15 +29,9 @@ document.addEventListener('DOMContentLoaded', () => {
 		document.documentElement.scrollTop = 0
 	})
 
-	const ej01 = (digits) => {
-		return String(digits).split('').reduce((acc, cur) => acc += parseInt(cur), 0)
-	}
-	const ej02 = (op) => {
-		return String(op).split('+').reduce((acc, cur) => acc += parseInt(cur), 0)
-	}
-	const ej03 = (limit = 10) => {
-		return Math.round(Math.random() * limit)
-	}
+	const ej01 = digits => String(digits).split('').reduce((acc, cur) => acc += parseInt(cur), 0)
+	const ej02 = op => String(op).split('+').reduce((acc, cur) => acc += parseInt(cur), 0)
+	const ej03 = (min = 1, max = 10) => Math.round(Math.random() * (max - min) + min)
 
 	document.addEventListener('click', e => {
 		const { target: { tagName, id } } = e
@@ -55,9 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
 					while (num3 !== p3) {
 						p3 = parseInt(prompt('Adiviná un número del 1 al 10: '))
 					}
-					if (num3 === p3) {
-						return alert(`¡Adivinaste! El número era ${p3}`)
-					}
+					return alert(`¡Adivinaste! El número era ${p3}`)
 				default:
 					console.log('ELEGIR EJERCICIO')
 			}
